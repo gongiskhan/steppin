@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+        "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+
+    <definition name="*" template="/layouts/default.jsp">
+        <put-attribute name="body" value="/WEB-INF/pages/{1}.jsp"/>
+    </definition>
+
+    <!--Error Pages-->
+    <definition name="notAuthorized" template="/layouts/default.jsp">
+        <put-attribute name="body" value="/WEB-INF/pages/403.jsp"/>
+    </definition>
+    <definition name="notFound" template="/layouts/default.jsp">
+        <put-attribute name="body" value="/WEB-INF/pages/404.jsp"/>
+    </definition>
+    <definition name="serverError" template="/layouts/default.jsp">
+        <put-attribute name="body" value="/WEB-INF/pages/500.jsp"/>
+    </definition>
+    <definition name="serviceUnavailable" template="/layouts/default.jsp">
+        <put-attribute name="body" value="/WEB-INF/pages/503.jsp"/>
+    </definition>
+</tiles-definitions>
