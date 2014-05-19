@@ -16,15 +16,25 @@
     <link href="<c:url value="/resources/css/bootstrap.min.css"/>" rel="stylesheet">
     <!-- Bootstrap theme CSS -->
     <link href="<c:url value="/resources/css/bootstrap-theme.min.css"/>" rel="stylesheet">
-
+    <!-- Bootstrap plugins CSS -->
+    <link href="<c:url value="/resources/css/bootstrap-datetimepicker.min.css"/>" rel="stylesheet">
+    <link href="<c:url value="/resources/css/pygments-manni.css"/>" rel="stylesheet">
+    <link href="<c:url value="/resources/css/font-awesome.css"/>" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="<c:url value="/resources/css/style.css"/>" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <script type="text/javascript" src="<c:url value="/resources/js/html5shiv.js"/>"></script>
+    <script type="text/javascript" src="<c:url value="/resources/js/respond.min.js"/>"></script>
     <![endif]-->
+    <!-- Bootstrap core JavaScript ================================================== -->
+
+    <script type="text/javascript" src="<c:url value="/resources/js/jquery.js"/>"></script>
+    <script type="text/javascript" src="<c:url value="/resources/js/bootstrap.min.js"/>"></script>
+    <script type="text/javascript" src="<c:url value="/resources/js/moment.js"/>"></script>
+    <script type="text/javascript" src="<c:url value="/resources/js/bootstrap-datetimepicker.min.js"/>"></script>
+    <script type="text/javascript" src="<c:url value="/resources/js/bootstrap-datetimepicker.ru.js"/>"></script>
 </head>
 
 <body>
@@ -34,17 +44,11 @@
     </header>
 -->
 <div class="container">
-
-    <tiles:insertAttribute name="body" />
-
-</div> <!-- /container -->
-
-
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script type="text/javascript" src="<c:url value="/resources/js/jquery.js"/>"></script>
-<script type="text/javascript" src="<c:url value="/resources/js/bootstrap.min.js"/>"></script>
+    <div class="row">
+        <tiles:insertAttribute name="body" />
+    </div>
+    <br/><br/><br/>
+</div>
 </body>
 </html>
 

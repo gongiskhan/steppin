@@ -1,16 +1,8 @@
 package com.toptal.steppin.webapp.config;
 
-import com.toptal.steppin.core.config.CoreConfig;
 import com.toptal.steppin.core.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.AuthenticationProvider;
-import org.springframework.security.authentication.dao.AbstractUserDetailsAuthenticationProvider;
-import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.authentication.encoding.ShaPasswordEncoder;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -43,13 +35,17 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
         http
         .csrf().disable()
         .authorizeRequests()
-        .antMatchers("/login","/login*","/register","/logout").permitAll()
+        .antMatchers("/login","/login.html","/register","/logout").permitAll()
         .anyRequest().authenticated();
 
         http.formLogin()
-        .loginPage("/login")
+        .loginPage("/login.html")
+        .usernameParameter("username")
+        .passwordParameter("password")
         .loginProcessingUrl("/login")
-        .failureUrl("/login?error")
+        .failureUrl("/login.html?error")
         .permitAll();
+
+        http.logout().logoutUrl("/logout");
     }
 }

@@ -1,10 +1,8 @@
 package com.toptal.steppin.core.service;
 
-import com.toptal.steppin.core.error.CoreException;
 import com.toptal.steppin.core.model.LogEntry;
 
-import java.io.UnsupportedEncodingException;
-import java.security.GeneralSecurityException;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -22,4 +20,6 @@ public interface LogEntryService {
     List<LogEntry> fetchAll();
 
     LogEntry delete(Long id);
+
+    List<LogEntry> fetchLogEntriesWithinRange(Long userId, Date from, Date to);
 }

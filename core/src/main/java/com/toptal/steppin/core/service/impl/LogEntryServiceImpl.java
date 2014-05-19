@@ -1,21 +1,14 @@
 package com.toptal.steppin.core.service.impl;
 
 import com.toptal.steppin.core.dao.LogEntryRepository;
-import com.toptal.steppin.core.dao.UserRepository;
-import com.toptal.steppin.core.error.CoreException;
 import com.toptal.steppin.core.error.ExceptionFactory;
 import com.toptal.steppin.core.model.LogEntry;
-import com.toptal.steppin.core.model.User;
 import com.toptal.steppin.core.service.LogEntryService;
-import com.toptal.steppin.core.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.authentication.encoding.ShaPasswordEncoder;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
 
-import java.io.UnsupportedEncodingException;
-import java.security.GeneralSecurityException;
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -51,5 +44,10 @@ public class LogEntryServiceImpl implements LogEntryService {
         LogEntry logEntry = logEntryRepository.findOne(id);
         logEntryRepository.delete(logEntry);
         return logEntry;
+    }
+
+    @Override
+    public List<LogEntry> fetchLogEntriesWithinRange(Long userId, Date from, Date to) {
+        return logEntryRepository.findLogEntriesWithinRange(userId,new Timestamp(from.getTime()),new Timestamp(to.getTime()));
     }
 }
